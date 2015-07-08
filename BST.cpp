@@ -20,15 +20,12 @@ public:
 	void insert(int key);
 	node *search(int key);
 	void destroy_tree();
-	int findMin();
-
 
 private:
 
 	void destroy_tree(node *leaf);
 	void insert(int key,node *leaf);
 	node *search(int key,node *leaf);
-	int findMin(node *leaf);
 
 	node *root;
 
@@ -124,20 +121,6 @@ node *btree::search(int key,node *leaf){
 
 }
 
-int btree::findMin(node *leaf){
-
-	node *current = new node;
-
-	while(current->left != NULL){
-
-		current = current->left;
-
-	}
-
-	return current->key_value;
-
-}
-
 void btree::insert(int key){
 
 	if(root != NULL){
@@ -169,12 +152,6 @@ void btree::destroy_tree(){
 
 }
 
-int btree::findMin(){
-
-	return findMin(root);
-
-}
-
 
 int main(){
 
@@ -197,8 +174,6 @@ int main(){
 	tree->insert(52);
 
 	tree->insert(14);
-
-	cout << tree->findMin() <<  endl;
 
 	return 0;
 }
